@@ -1,0 +1,17 @@
+# Materi skripsi ini sengaja lokal saja; jangan di-push ke GitHub.
+
+# Catatan analisis & draf
+ANALISIS_LITERATUR_LENGKAP.md
+DRAFT_PROPOSAL_SKRIPSI.md
+literatur_gap_skripsi.md
+skripsi_hijaiyah_canvas_research_notes.md
+skripsi_hijaiyah_canvas_research_notes.docx
+
+# Kumpulan PDF referensi
+file GAP/
+file pdf/
+*.pdf
+
+# Gambar & konfigurasi tool lokal
+image.png
+.qoder/
