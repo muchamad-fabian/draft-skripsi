@@ -1,23 +1,11 @@
-# Materi skripsi ini sengaja lokal saja; jangan di-push ke GitHub.
+# Cache & dependensi tool lokal; jangan di-push ke GitHub.
 
-# Catatan analisis & draf
-ANALISIS_LITERATUR_LENGKAP.md
-DRAFT_PROPOSAL_SKRIPSI.md
-ARSIP_DRAFT_BAB1_PROPOSAL.md
-DAFTAR_JURNAL_REFERENSI.md
-literatur_gap_skripsi.md
-skripsi_hijaiyah_canvas_research_notes.md
-skripsi_hijaiyah_canvas_research_notes.docx
-
-# Kumpulan PDF referensi
-file GAP/
-file pdf/
-*.pdf
-
-# Gambar & konfigurasi tool lokal
-image.png
-.qoder/
-
-# Cache & dependensi tool lokal
-undefined/
+# Dependensi Node (berukuran besar, bisa di-generate ulang)
 node_modules/
+
+# Cache tool
+undefined/
+
+# Berkas sementara/lock MS Office
+~$*
+.DS_Store
