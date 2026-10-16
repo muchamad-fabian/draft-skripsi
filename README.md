@@ -20,10 +20,19 @@ Latar belakang dan celah penelitian lengkap ada di [`BAB1_PENDAHULUAN.md`](BAB1_
 | Berkas / Folder | Keterangan |
 |---|---|
 | `BAB1_PENDAHULUAN.md` | Naskah Bab 1 (Pendahuluan) beserta ringkasan analisis draf |
+| `DRAFT_PROPOSAL_SKRIPSI.md` | Draf lengkap proposal skripsi |
+| `ARSIP_DRAFT_BAB1_PROPOSAL.md` | Arsip draf awal Bab 1 / proposal |
+| `ANALISIS_LITERATUR_LENGKAP.md` | Analisis literatur lengkap |
+| `literatur_gap_skripsi.md` | Pemetaan *research gap* |
+| `skripsi_hijaiyah_canvas_research_notes.md` | Catatan riset canvas Hijaiyah |
+| `DAFTAR_JURNAL_REFERENSI.md` | Daftar jurnal acuan |
 | `prd.md` | Product Requirements Document — spesifikasi teknis pipeline |
 | `FORMAT_TUGAS_AKHIR.md` | Format/lembar resmi tugas akhir (template kampus) |
+| `file GAP/` | Kumpulan PDF jurnal pendukung & kajian *research gap* |
+| `file pdf/` | PDF acuan (materi Iqro 3, ketentuan penulisan skripsi UISI) |
+| `panduan-penulisan-skripsi.pdf` | Panduan penulisan skripsi |
 | `Pengerjaan/` | Arsip catatan sesi kerja (status, keputusan teknis, langkah lanjut) |
-| `.opencode/` | Konfigurasi tool lokal |
+| `.opencode/`, `.qoder/` | Konfigurasi tool lokal |
 
 ### Arsip sesi
 
@@ -33,6 +42,12 @@ Latar belakang dan celah penelitian lengkap ada di [`BAB1_PENDAHULUAN.md`](BAB1_
 
 **Aturan melanjutkan:** baca `STATUS_SESI.md` lebih dulu; jangan menjalankan operasi penghapusan massal (`git clean`, `git reset --hard`, dsb.); jangan menganggap metrik data demo sebagai hasil skripsi.
 
-## Catatan: Materi Lokal (Tidak di-push)
+## Catatan: Berkas yang Tidak Disertakan
 
-Beberapa berkas materi skripsi **sengaja** tidak disertakan di repositori ini (lihat `.gitignore`), yaitu draf proposal, analisis literatur, kumpulan PDF referensi, gambar, dan catatan riset. Berkas-berkas tersebut hanya tersimpan lokal. Jika dibutuhkan untuk reproduksi, mintakan langsung kepada penulis.
+Agar repositori tetap ringan, beberapa berkas *generated*/sementara tidak disertakan (lihat `.gitignore`):
+
+- `node_modules/` — dependensi tool, bisa dipasang ulang (mis. `npm install`).
+- `undefined/` — cache tool.
+- Berkas *lock* sementara MS Office (`~$*.docx`).
+
+Seluruh materi skripsi (draf, analisis literatur, dan PDF referensi) **sudah** disertakan di repositori ini.
