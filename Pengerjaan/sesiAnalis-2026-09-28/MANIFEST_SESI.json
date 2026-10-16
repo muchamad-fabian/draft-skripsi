@@ -1,0 +1,28 @@
+{
+  "session_folder": "sesiAnalis-2026-09-28",
+  "date": "2026-09-28",
+  "purpose": "Arsip aman untuk melanjutkan pipeline pengenalan huruf Hijaiyah sambung",
+  "primary_notebook": "notebooks/training_hijaiyah_colab.ipynb",
+  "output_alphabet": "ابتثجحخدذرزسشصضطظعغفقكلمنهوي",
+  "output_rules": {
+    "max_label_length": 3,
+    "min_label_length": 2,
+    "order": "logical_right_to_left",
+    "harakat_allowed": false,
+    "latin_allowed": false,
+    "hamza_separate_allowed": false
+  },
+  "architecture": [
+    "canvas_preprocessing",
+    "MobileNetV4",
+    "auxiliary_multi_label",
+    "map_to_sequence",
+    "unidirectional_LSTM",
+    "CTC",
+    "greedy_decode"
+  ],
+  "data_status": "Iqro_3_dataset_not_available",
+  "code_status_at_archive_time": "project_folder_empty",
+  "non_destructive": true,
+  "resume_entrypoint": "LANGKAH_LANJUT.md"
+}

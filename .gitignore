@@ -17,3 +17,7 @@ file pdf/
 # Gambar & konfigurasi tool lokal
 image.png
 .qoder/
+
+# Cache & dependensi tool lokal
+undefined/
+node_modules/
