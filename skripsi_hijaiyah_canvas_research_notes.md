@@ -7,13 +7,13 @@
 
 **Tanggal Pembuatan:** 2026-09-08  
 **Terakhir Diperbarui:** 2026-09-22  
-**Status Dokumen:** Telah Disinkronkan dengan Arahan Dosen Pembimbing (Pak Zain), Referensi Dataset Publik (Hijja2), dan Hasil Meet 22 September 2026 (garis titik-titik canvas diperbolehkan; backbone CNN = MobileNetV4; latih backbone CNN terlebih dahulu sebelum CNN-LSTM end-to-end)
+**Status Dokumen:** Telah Disinkronkan dengan Arahan Dosen Pembimbing (Pak Zain), Referensi Dataset Publik (Hijja2), dan Hasil Meet 22 September 2026 (garis titik-titik canvas diperbolehkan; backbone CNN = MobileNetV3; latih backbone CNN terlebih dahulu sebelum CNN-LSTM end-to-end)
 
 ---
 
 ## Hasil Meet 22 September 2026 (Ringkasan Arahan Baru)
 1. **Garis titik-titik panduan di canvas DIPERBOLEHKAN** — pengguna boleh menulis/menebalkan di atas pola titik-titik panduan pada canvas.
-2. **Backbone CNN memakai MobileNetV4** (arsitektur CNN terbaru) untuk transfer learning, menggantikan opsi lama (MobileNetV2/ResNet/VGG).
+2. **Backbone CNN memakai MobileNetV3** (arsitektur CNN ringan berbasis *depthwise separable convolution*, modul SE, dan aktivasi *hard-swish*) untuk transfer learning, menggantikan opsi lama (MobileNetV2/ResNet/VGG).
 3. **Urutan kerja: latih model terlebih dahulu** — fase pertama adalah melatih backbone CNN (transfer learning), baru kemudian dirangkai dan dilatih end-to-end sebagai CNN-LSTM.
 4. **Judul tidak perlu memuat kata "Iqro 3" / "canvas digital"** — cukup di batasan masalah.
 5. **Batas maksimal 3 huruf per citra dipakai dulu** untuk pelatihan awal; ke depannya bisa disesuaikan.
@@ -71,7 +71,7 @@
 - **Harmonisasi Teknis:** 
   - Judul awal menggunakan terminologi *"Transfer Learning"* dan *"Multi-Label"*.
   - Dalam implementasi arsitektur **CNN-LSTM**:
-    1. Komponen **CNN** memanfaatkan pre-trained model sebagai pengekstraksi fitur visual citra tulisan tangan — **backbone yang diputuskan: MobileNetV4** (meet 22 September 2026).
+    1. Komponen **CNN** memanfaatkan pre-trained model sebagai pengekstraksi fitur visual citra tulisan tangan — **backbone yang diputuskan: MobileNetV3** (meet 22 September 2026).
     2. Komponen **LSTM** bertindak sebagai pemodel sekuensial yang mengenali urutan huruf sambung.
   - Secara teoritis tugas ini adalah **Sequence Recognition / CRNN (Convolutional Recurrent Neural Network)** karena output harus mempertahankan urutan ($C_1 \rightarrow C_2 \rightarrow C_3$). Judul sementara tetap dipertahankan sampai pengajuan draft proposal resmi ke dosen.
 
@@ -299,10 +299,10 @@ Berdasarkan telaah literatur dan arahan dosen, terdapat 3 pilar gap penelitian u
 ## 15. Transfer Learning dan Perannya
 
 Dalam arsitektur hybrid **CNN-LSTM**:
-- **Backbone yang Diputuskan: MobileNetV4** (meet 22 September 2026 — instruksi memakai CNN terbaru).
-- **Pemanfaatan Transfer Learning:** Backbone **MobileNetV4** dapat mengadopsi model *pre-trained* umum (bobot ImageNet) maupun *domain-specific pre-training* (pelatihan awal pada dataset **Hijja2** yang memiliki 47k+ sampel karakter hijaiyah individual) untuk bertindak sebagai ekstraktor fitur spasial (*feature extractor*).
+- **Backbone yang Diputuskan: MobileNetV3** (meet 22 September 2026 — arahan memakai backbone CNN ringan).
+- **Pemanfaatan Transfer Learning:** Backbone **MobileNetV3** dapat mengadopsi model *pre-trained* umum (bobot ImageNet) maupun *domain-specific pre-training* (pelatihan awal pada dataset **Hijja2** yang memiliki 47k+ sampel karakter hijaiyah individual) untuk bertindak sebagai ekstraktor fitur spasial (*feature extractor*).
 - **Efisiensi & Mitigasi Data Terbatas:** Mengingat dataset canvas yang dikumpulkan sendiri memiliki ukuran terbatas, penggunaan Transfer Learning mempercepat konvergensi dan mencegah *overfitting* pada lapisan konvolusi sebelum fitur diteruskan ke lapisan recurrent LSTM.
-- **Urutan Pelatihan (arahan dosen 22/9/2026):** Latih/fine-tune backbone CNN (MobileNetV4) **terlebih dahulu**, baru kemudian dirangkai dengan LSTM dan dilatih end-to-end sebagai CNN-LSTM.
+- **Urutan Pelatihan (arahan dosen 22/9/2026):** Latih/fine-tune backbone CNN (MobileNetV3) **terlebih dahulu**, baru kemudian dirangkai dengan LSTM dan dilatih end-to-end sebagai CNN-LSTM.
 
 ---
 
@@ -315,7 +315,7 @@ Citra Input Canvas [W x H x 1/3]
        │
        ▼
 [Lapisan Konvolusi / CNN Feature Extractor]
-(Backbone: MobileNetV4 berbobot pre-trained — arahan meet 22/9/2026)
+(Backbone: MobileNetV3 berbobot pre-trained — arahan meet 22/9/2026)
 (Mengekstrak representasi peta fitur visual dari bentuk huruf sambung)
        │
        ▼
@@ -374,7 +374,7 @@ Karena masalah telah dikonfirmasi sebagai **Sequence Recognition (CNN-LSTM)**, m
 | **P8** | Draft awal skripsi dari dosen | **TERJAWAB** | Tidak ada draft dari dosen (*"Draft apa?"*); mahasiswa yang menyusun proposal mandiri |
 | **P9** | Pembagian peran & lingkup aplikasi gamifikasi | **TERJAWAB** | Mahasiswa hanya membuat model AI (*"kamu cuma buat model nya aja"*); gamifikasi dikembangkan oleh kolaborator (Mas Nadhif) |
 | **P10** | Garis titik-titik panduan pada canvas | **TERJAWAB (Meet 22/9/2026)** | **Diperbolehkan** — canvas boleh memberi pola titik-titik panduan untuk ditebalkan pengguna |
-| **P11** | Pemilihan backbone CNN transfer learning | **TERJAWAB (Meet 22/9/2026)** | Gunakan **MobileNetV4** (CNN terbaru) |
+| **P11** | Pemilihan backbone CNN transfer learning | **TERJAWAB (Meet 22/9/2026)** | Gunakan **MobileNetV3** (CNN ringan) |
 | **P12** | Urutan pengerjaan | **TERJAWAB (Meet 22/9/2026)** | **Melatih model terlebih dahulu** — backbone CNN dilatih dulu, baru CNN-LSTM end-to-end |
 | **P13** | Kata "Iqro 3" / "canvas digital" di judul | **TERJAWAB** | **Tidak perlu masuk judul** — cukup di batasan masalah |
 | **P14** | Batas maksimal 3 huruf per citra final? | **TERJAWAB** | **Mulai dari maksimal 3 huruf dulu** untuk pelatihan awal; nanti bisa disesuaikan ke depannya |
@@ -390,7 +390,7 @@ Karena masalah telah dikonfirmasi sebagai **Sequence Recognition (CNN-LSTM)**, m
 - [x] Batasan kata: Disamakan persis dengan kata sambung di buku Iqro 3 (maksimal 3 huruf)
 - [x] Rujukan kurikulum data: Buku Iqro 3
 - [x] Metode utama yang ditentukan: **CNN-LSTM**
-- [x] Backbone CNN transfer learning: **MobileNetV4** *(Arahan Meet 22/9/2026)*
+- [x] Backbone CNN transfer learning: **MobileNetV3** *(Arahan Meet 22/9/2026)*
 - [x] Urutan kerja: **latih backbone CNN dulu**, baru CNN-LSTM end-to-end *(Arahan Meet 22/9/2026)*
 - [x] Target literatur gap: Minimal 15 paper tentang huruf hijaiyah sambung
 - [x] Pembagian peran/lingkup: Mahasiswa hanya fokus pada **pengembangan model AI (CNN-LSTM)** (*"kamu cuma buat model nya aja"*); gamifikasi dikembangkan oleh kolaborator (**Mas Nadhif**)
@@ -399,7 +399,7 @@ Karena masalah telah dikonfirmasi sebagai **Sequence Recognition (CNN-LSTM)**, m
 ### Perlu Dirumuskan Sendiri oleh Mahasiswa
 - [ ] Daftar inventaris seluruh kata sambung dari buku Iqro 3
 - [ ] Desain arsitektur detail layer CNN dan layer LSTM
-- [ ] Varian MobileNetV4 yang dipakai (misal Conv-small / Hybrid-large) dan sumber bobot awal (ImageNet vs pra-pelatihan Hijja2)
+- [x] Varian MobileNetV3 yang dipakai: **Large** dengan sumber bobot awal ImageNet (opsi pra-pelatihan Hijja2 dapat dipertimbangkan sebagai eksperimen tambahan)
 - [ ] Jumlah responden / pengumpul data tulisan tangan canvas
 - [ ] Penyusunan dokumen Draft Proposal / Gambaran Awal Skripsi (1-2 halaman) untuk diajukan ke Pak Zain
 
@@ -409,7 +409,7 @@ Karena masalah telah dikonfirmasi sebagai **Sequence Recognition (CNN-LSTM)**, m
 
 | No | Tugas | Keterangan |
 |---|---|---|
-| **1** | **Pelatihan Model (LANGKAH PERTAMA — arahan meet 22/9/2026)** | Latih backbone **MobileNetV4** terlebih dahulu (transfer learning, opsi bobot ImageNet atau pra-pelatihan Hijja2), baru kemudian dirangkai dan dilatih end-to-end sebagai CNN-LSTM. |
+| **1** | **Pelatihan Model (LANGKAH PERTAMA — arahan meet 22/9/2026)** | Latih backbone **MobileNetV3** terlebih dahulu (transfer learning, opsi bobot ImageNet atau pra-pelatihan Hijja2), baru kemudian dirangkai dan dilatih end-to-end sebagai CNN-LSTM. |
 | **2** | **Inventarisasi Materi Iqro 3** | Mengetik dan merekap seluruh kata sambung yang ada di buku Iqro 3 ke dalam tabel untuk dijadikan daftar acuan dataset tulisan tangan canvas. |
 | **3** | **Menyelesaikan 15 Paper Literatur Gap** | Melengkapi kajian 15 paper pada [literatur_gap_skripsi.md](file:///c:/Users/fabia/Documents/Kuliah/Skripsi/literatur_gap_skripsi.md) yang berfokus pada huruf hijaiyah sambung. |
 | **4** | **Menyusun Ringkasan Proposal Skripsi (1–2 Halaman)** | Menyiapkan dokumen ringkas berisi latar belakang, dataset Iqro 3, metode CNN-LSTM, dan pembagian lingkup (model AI oleh Fabian, gamifikasi oleh Mas Nadhif) untuk persetujuan Pak Zain. |

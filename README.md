@@ -7,7 +7,7 @@
 
 ## Ringkasan
 
-Penelitian ini mengembangkan model pengenalan tulisan tangan huruf Hijaiyah **bersambung** (2–3 karakter per citra) dengan pendekatan **nirsegmentasi** (*segmentation-free sequence recognition*) berbasis **CNN-LSTM** dan **transfer learning** (*backbone* MobileNetV4).
+Penelitian ini mengembangkan model pengenalan tulisan tangan huruf Hijaiyah **bersambung** (2–3 karakter per citra) dengan pendekatan **nirsegmentasi** (*segmentation-free sequence recognition*) berbasis **CNN-LSTM** dan **transfer learning** (*backbone* MobileNetV3).
 
 - **Masukan:** citra digital tunggal hasil ekspor *canvas* interaktif, kosakata mengacu materi **Iqro 3**.
 - **Keluaran:** urutan 28 huruf Hijaiyah tanpa harakat.

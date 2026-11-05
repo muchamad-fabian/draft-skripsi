@@ -9,7 +9,7 @@
 
 Proyek adalah penelitian machine learning untuk mengenali urutan huruf Hijaiyah tulisan tangan yang salingambung pada citra hasil ekspor canvas digital. Satu citra berisi satu kata/kombinasi sambung, umumnya 2–3 huruf, dan keluaran harus mempertahankan urutan logis kanan-ke-kiri. Materi acuan kosakata adalah buku Iqro 3.
 
-Arah metode yang tercatat dalam draft dan catatan terbaru adalah CNN-LSTM dengan transfer learning pada komponen CNN. Backbone yang diarahkan adalah MobileNetV4, dengan tahap awal melatih/fine-tuning backbone dan tahap berikutnya melatih CNN-LSTM secara end-to-end. Fokus mahasiswa adalah pipeline dataset dan model; gamifikasi serta integrasi aplikasi ditangani kolaborator.
+Arah metode yang tercatat dalam draft dan catatan terbaru adalah CNN-LSTM dengan transfer learning pada komponen CNN. Backbone yang diarahkan adalah MobileNetV3, dengan tahap awal melatih/fine-tuning backbone dan tahap berikutnya melatih CNN-LSTM secara end-to-end. Fokus mahasiswa adalah pipeline dataset dan model; gamifikasi serta integrasi aplikasi ditangani kolaborator.
 
 PRD ini tidak menetapkan bahwa proyek sudah memiliki implementasi final. Pemeriksaan langsung terakhir menunjukkan `code/Pengerjaan/` ada tetapi kosong dan tidak memiliki path yang terlacak di Git. Inventory awal sempat menampilkan README, konfigurasi, source Python, tests, notebook, dataset demo, output, dan checkpoint; evidence tersebut dicatat sebagai snapshot tidak terverifikasi dan harus dikonfirmasi sebelum development.
 
@@ -89,7 +89,7 @@ Hipotesis pada arsip bersifat opsional dan belum dikonfirmasi:
 
 - Target accurasi/CER numerik.
 - Jumlah minimum writer dan sampel.
-- ~~Varians MobileNetV4 final~~ (resolved: MobileNetV4-Conv-Small)
+- ~~Varians MobileNetV3 final~~ (resolved: MobileNetV3-Large)
 - ~~Sumber bobot pretrained final~~ (resolved: ImageNet)
 - ~~Variabel label untuk panjang 2 dan 3 huruf~~ (resolved: fixed slots maks 3)
 - Jumlah layer/arah LSTM dan (loss) final.
@@ -154,7 +154,7 @@ Hipotesis pada arsip bersifat opsional dan belum dikonfirmasi:
 | `Skripsi.docx` | Template Word lama | Binary audit menunjukkan 21 halaman, 511 body paragraphs, unrelated content and identity contamination |
 | `code/file pdf/Iqra-3-Belajar-Baca-Quran.pdf` | Source material for vocabulary | 32-page scan without reliable text layer; manual inventory required |
 | `code/image.png` | Possible visual example of connected handwriting | One image only; not a dataset; dimensions are reported inconsistently across audit snapshots |
-| `code/file GAP/*.pdf` | Main scholarly and architecture references | 4 PDF files, including MobileNetV4 reference |
+| `code/file GAP/*.pdf` | Main scholarly and architecture references | 4 PDF files, including MobileNetV3 reference |
 | `code/file GAP/Jurnal Pendukung/*.pdf` | Supporting scholarly references | 13 PDF files |
 | `code/file GAP/Jurnal Pendukung/Sementara/*` | Temporary drafts, reviews, and 7 PDF files | Includes Word lock file and near-duplicate title documents |
 | `code/.opencode/`, `code/.qoder/`, `undefined/.cache/` | Tool configuration/cache | Generated/tooling files; excluded from project requirements |
@@ -166,7 +166,7 @@ Hipotesis pada arsip bersifat opsional dan belum dikonfirmasi:
 - `Optimization_of_Hijaiyah_Letter_Handwriting_Recognition_Model_Based_on_Deep_Learning.pdf`
 - `jait.2024.0473.pdf`
 - `applsci-13-01692 (1).pdf`
-- `MobileNetV4.pdf`
+- `MobileNetV3.pdf`
 
 **`Jurnal Pendukung` langsung:**
 
@@ -218,7 +218,7 @@ Berdasarkan draft terbaru dan research notes:
 - Vocabulary: connected words in Iqro 3, limited to a maximum of three letters in the initial scope; 4+ words are added only if the 3-letter stage proves feasible.
 - Reading order: right-to-left logical order.
 - Model family: CNN-LSTM.
-- CNN backbone direction: MobileNetV4.
+- CNN backbone direction: MobileNetV3.
 - Training order: backbone first, then CNN-LSTM end-to-end.
 - Manual character segmentation: not part of the intended method.
 - Main evaluation: exact match, character/positional accuracy, CER.
@@ -234,7 +234,7 @@ Berdasarkan draft terbaru dan research notes:
 | Literature target from advisor | Not met | Approximately 4–6 genuinely connected-script papers identified, versus target about 15 |
 | Iqro 3 vocabulary inventory | Missing | Checklist remains unchecked |
 | Primary dataset | Missing | No current raw/processed production dataset |
-| Model specification | Partial | CNN-LSTM and MobileNetV4 direction known; many details missing |
+| Model specification | Partial | CNN-LSTM and MobileNetV3 direction known; many details missing |
 | Code implementation | Current filesystem unavailable/empty | Direct recheck of `code/Pengerjaan`; no Git-tracked paths |
 | Notebook execution | Unproven | Initial snapshot had no saved execution output; current notebook path unavailable |
 | Production results | Missing | No valid research metrics or final model evidence |
@@ -282,7 +282,7 @@ The snapshot suggested the following historical design:
 - JSONL manifest with `image_path`, `text`, `writer_id`, and `split`.
 - Writer-disjoint split validation.
 - Grayscale, background estimation, thresholding, crop, aspect-preserving resize, and tensor normalization.
-- MobileNetV4 feature extractor.
+- MobileNetV3 feature extractor.
 - Auxiliary 28-class BCE stage and CNN-LSTM CTC stage.
 - Greedy CTC decoding.
 - Exact match, positional accuracy, and CER.
@@ -328,13 +328,13 @@ These items may be useful for recovery planning, but the PRD does not treat them
 | TR-01 | Use a reproducible Python ML environment | Initial implementation snapshot and project needs | Candidate; exact versions not specified in current files |
 | TR-02 | Support notebook execution in Jupyter/Google Colab | Notes and user requirement | Planned |
 | TR-03 | Provide a CNN feature extractor and recurrent sequence model | Draft and notes | Planned; CNN-LSTM required |
-| TR-04 | Use MobileNetV4 as the directed backbone | Latest notes and draft | **Resolved (user):** MobileNetV4-Conv-Small |
+| TR-04 | Use MobileNetV3 as the directed backbone | Latest notes and draft | **Resolved (user):** MobileNetV3-Large |
 | TR-05 | Support a two-stage training lifecycle | Latest notes | Planned |
 | TR-06 | Store model/config compatibility metadata | Reproducibility recommendation | Planned; snapshot implementation did not fully validate it |
 | TR-07 | Use deterministic seeds, environment capture, and run identifiers | Reproducibility requirement | Planned; no current implementation evidence |
 | TR-08 | Avoid hidden dependency on absolute Google Drive paths | Notebook portability requirement | Planned; historical snapshot used hardcoded Drive paths |
 | TR-09 | Keep architecture simple and notebook-centered | Project complexity constraint | Recommended; no microservices |
-| TR-10 | Document hardware/runtime assumptions for Colab | MobileNetV4/Colab execution need | Planned; GPU requirement not specified |
+| TR-10 | Document hardware/runtime assumptions for Colab | MobileNetV3/Colab execution need | Planned; GPU requirement not specified |
 
 Candidate libraries from the historical snapshot were NumPy, Pillow, PyYAML, timm, PyTorch, torchvision, pytest, Ruff, Mypy, JupyterLab, and nbclient. These are **not re-confirmed current requirements** because the implementation files are currently absent.
 
@@ -446,7 +446,7 @@ This is a **technical recommendation based on a non-current snapshot**, not a fi
 | Dotted guide handling | Latest notes | Step 5 | Guide dibuang sebelum input (user D-04) | Visual/data QC | Resolved: guide panduan penulis, bukan input |
 | Participant-wise split | Archive | Step 4 and 7 | Split manifest | Leakage audit | Planned |
 | CNN-LSTM | Draft/notes | Step 9–10 | Two-stage model | Forward/training tests | Planned |
-| MobileNetV4 | Latest notes | Step 9 | Backbone checkpoint | Model/config validation | Variant unresolved |
+| MobileNetV3 | Latest notes | Step 9 | Backbone checkpoint | Model/config validation | Variant unresolved |
 | Transfer learning | Draft/notes | Step 9 and 11 | Ablation results | Same-split comparison | Source unresolved |
 | Exact match | Draft/notes | Step 12 | Metric report | Known fixtures | Planned |
 | Positional accuracy | Draft/notes | Step 12 | Metric report | Definition review | Ambiguous |
@@ -475,7 +475,7 @@ The snapshot contained 16 cells: 8 Markdown and 8 code cells, with no saved exec
 | 5 | Code | Mount Drive, load config, create artifact paths | Hardcoded `/content/drive/...`; no output |
 | 6 | Markdown | Data and manifest instructions | Present in snapshot |
 | 7 | Code | Generate demo or load real manifest, summarize and assert | No output |
-| 8 | Markdown | Stage-1 MobileNetV4 description | Present in snapshot |
+| 8 | Markdown | Stage-1 MobileNetV3 description | Present in snapshot |
 | 9 | Code | Call `train_backbone` | Depends on missing source |
 | 10 | Markdown | Stage-2 CNN-LSTM + CTC description | Present in snapshot |
 | 11 | Code | Call `train_crnn` | Depends on stage-1 checkpoint |
@@ -678,7 +678,7 @@ Dataset validation and participant-wise split
         ↓
 EDA and preprocessing specification
         ↓
-Stage 1: MobileNetV4 backbone training/fine-tuning
+Stage 1: MobileNetV3 backbone training/fine-tuning
         ↓
 Backbone checkpoint + history
         ↓
@@ -740,7 +740,7 @@ EDA and label/preprocessing decisions
         ↓
 Baseline definition
         ↓
-Stage-1 MobileNetV4 training/fine-tuning
+Stage-1 MobileNetV3 training/fine-tuning
         ↓
 Stage-2 CNN-LSTM end-to-end training
         ↓
@@ -947,7 +947,7 @@ The exact ablation matrix is `Ambiguous requirement — requires clarification.`
 Menghasilkan representasi visual CNN sebelum model sequence dilatih.
 
 **Input**  
-Training/validation data, preprocessing contract, MobileNetV4 variant/checkpoint, and stage-1 config.
+Training/validation data, preprocessing contract, MobileNetV3 variant/checkpoint, and stage-1 config.
 
 **Proses**  
 Initialize or fine-tune the backbone, train the approved auxiliary objective, validate, select checkpoint, and record history.
@@ -962,7 +962,7 @@ Checkpoint loads in a fresh process; loss is finite; validation selection is doc
 Steps 2, 6–8.
 
 **Catatan**  
-MobileNetV4-Conv-Small pretrained ImageNet (D-09/D-10). Input channels, freeze policy, dan auxiliary objective stage-1 masih perlu dikunci.
+MobileNetV3-Large pretrained ImageNet (D-09/D-10). Input channels, freeze policy, dan auxiliary objective stage-1 masih perlu dikunci.
 
 ### Step 10 — Stage-2 CNN-LSTM Training
 
@@ -1117,7 +1117,7 @@ The following is the proposed cell order for the future notebook, based on the p
 | 7 | EDA | Counts, label length, writer/session, split, and image quality | Tables and plots |
 | 8 | Label/preprocessing contract | Show alphabet, sequence encoding, guide policy, and sample transforms | Clear before training |
 | 9 | Reproducibility setup | Set seeds, device, dataloaders, and run metadata | Deterministic run context |
-| 10 | Stage-1 training | Train/fine-tune MobileNetV4 backbone | Checkpoint, history, validation record |
+| 10 | Stage-1 training | Train/fine-tune MobileNetV3 backbone | Checkpoint, history, validation record |
 | 11 | Stage-2 training | Load stage-1 checkpoint and train CNN-LSTM | Sequence checkpoint and history |
 | 12 | Evaluation | Decode test predictions and calculate primary metrics | Evaluation JSON/report |
 | 13 | Visualization/error analysis | Loss curves, label distribution, per-length results, examples | Figures and error IDs |
@@ -1347,7 +1347,7 @@ Proyek dianggap selesai hanya when:
 - QC records and rejection log.
 - Final split ratios and frozen assignment.
 - Final label/sequence encoding.
-- Final MobileNetV4 variant and weight source.
+- Final MobileNetV3 variant and weight source.
 - Final CNN-LSTM layer specification.
 - Approved baseline/ablation matrix.
 - Current code, tests, configs, and notebook.
@@ -1374,7 +1374,7 @@ Proyek dianggap selesai hanya when:
 | CI-02 | Max three letters is provisional in latest notes vs fixed in archive | Notes line 19/380 vs archive lines 34/45 | **Resolved:** initial scope ≤3 (Section 10.5); 4+ words conditional |
 | CI-03 | “All Iqro 3 words” vs selected/closed vocabulary wording | Notes lines 111/202 vs draft line 25 | **Resolved:** selected ≤3-letter list for initial scope; 4+ conditional expansion |
 | CI-04 | Multi-label title vs sequence/CTC implementation | Draft lines 52–60, notes lines 170–194 | Keep terminology only with explicit explanation |
-| CI-05 | MobileNetV2/ResNet/VGG old notes vs MobileNetV4 latest direction | Old gap vs latest notes | **Resolved (user):** MobileNetV4-Conv-Small |
+| CI-05 | MobileNetV2/ResNet/VGG old notes vs MobileNetV3 latest direction | Old gap vs latest notes | **Resolved (user):** MobileNetV3-Large |
 | CI-06 | ImageNet vs Hijja2 pretraining unresolved | Draft line 44 and notes line 402 | **Resolved (user):** pretrained ImageNet |
 | CI-07 | CTC appears as precedent but is not fully specified as final algorithm | Archive lines 28/84–86 | **Resolved (user):** fixed slots (max 3 letters) |
 | CI-08 | 28-letter output vs Hijja2 29-class description | Notebook snapshot vs notes lines 214–216 | **Resolved (user):** hamzah dihitung karena termasuk huruf |
@@ -1393,7 +1393,7 @@ Proyek dianggap selesai hanya when:
 | Dataset cannot be collected in sufficient quality | High | Critical | Freeze protocol, conduct pilot, monitor writer coverage |
 | Writer leakage inflates results | High | Critical | Freeze participant-wise split and audit |
 | Label/sequence policy changes late | High | Critical | Resolve Step 3 and Step 6 before code |
-| MobileNetV4 variant/checkpoint unavailable or incompatible | Medium | High | Verify model name, input shape, license, and package version |
+| MobileNetV3 variant/checkpoint unavailable or incompatible | Medium | High | Verify model name, input shape, license, and package version |
 | ImageNet transfer underperforms domain-specific data | Medium | High | Include scratch and approved pretraining ablations |
 | CTC time steps insufficient for repeated labels | Medium | High | Add shape/decoder tests before training |
 | Overfitting on small canvas dataset | High | High | Use controlled augmentation, regularization, and held-out writers |
@@ -1417,7 +1417,7 @@ The following decisions are intentionally not resolved in this PRD:
 6. **D-06:** Is hamzah excluded, mapped to a base letter, or treated as an abstention class? — **Resolved (user):** hamzah dihitung karena termasuk huruf (label letter; madda dinormalisasi ke hamzah+alif/أ).
 7. **D-07:** Which sequence representation is final: CTC, fixed slots, or another design? — **Resolved (user):** fixed slots, karena jumlah huruf sudah ditentukan sejak awal (maksimal 3 huruf per sampel).
 8. **D-08:** Is the recurrent layer unidirectional LSTM, bidirectional LSTM, or selected after ablation? — **Resolved (user):** unidirectional LSTM (pembangunan CNN-LSTM kanan-ke-kiri).
-9. **D-09:** Which MobileNetV4 variant and pretrained checkpoint are valid for the chosen input? — **Resolved (user):** MobileNetV4-Conv-Small.
+9. **D-09:** Which MobileNetV3 variant and pretrained checkpoint are valid for the chosen input? — **Resolved (user):** MobileNetV3-Large.
 10. **D-10:** Should transfer learning use ImageNet, Hijja2, both, or a controlled comparison? — **Resolved (user):** ImageNet pretrained.
 11. **D-11:** What is the minimum number of writers, words, and images per word?
 12. **D-12:** What are the train/validation/test ratios and word coverage rules?
@@ -1489,7 +1489,7 @@ README must not contain fictional commands, fictional metrics, or claims that de
 
 ### Gate C — Modeling readiness
 
-- [ ] MobileNetV4 variant/checkpoint verified.
+- [ ] MobileNetV3 variant/checkpoint verified.
 - [ ] Transfer learning source decision recorded.
 - [ ] Preprocessing implemented and visualized.
 - [ ] Baseline/ablation matrix approved.

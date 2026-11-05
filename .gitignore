@@ -6,6 +6,9 @@ node_modules/
 # Cache tool
 undefined/
 
+# Dataset eksternal (repo git terpisah, 227 MB) — jangan di-push ke repo ini
+Pengerjaan/Data per-hjjah/Hijja2/
+
 # Berkas sementara/lock MS Office
 ~$*
 .DS_Store

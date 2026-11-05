@@ -142,11 +142,11 @@ Gresik, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oktober 2026
 
 Pembelajaran literasi membaca dan menulis aksara Al-Qur'an pada tingkat dasar di Indonesia umumnya bertumpu pada metode Iqro. Pada tahap buku Iqro 3, peserta didik mulai mempelajari huruf-huruf Hijaiyah yang dirangkai bersambung membentuk kata pendek (2 hingga 3 karakter per citra). Proses evaluasi menulis selama ini masih bergantung pada koreksi visual manual oleh guru secara tatap muka, yang menghadapi kendala keterbatasan waktu, inkonsistensi penilaian, serta keterbatasan latihan mandiri di luar kelas. Seiring meluasnya media *canvas digital* pada perangkat layar sentuh, citra hasil goresan digital berpotensi besar dianalisis secara otomatis oleh sistem kecerdasan buatan sebagai teknologi pembantu (*assisting technology*). Penelitian acuan terdahulu oleh Rahmatulloh dkk. (2022) berhasil mengoptimalkan Convolutional Neural Network (CNN) untuk mengenali tulisan tangan huruf Hijaiyah tunggal (*isolated*) dengan akurasi 91% pada dataset anak-anak (Hijja2) dan merekomendasikan pengembangan model pengenalan tulisan tangan ke dalam aplikasi *mobile*. Namun, model tersebut belum mampu mengenali huruf bersambung yang memiliki dinamika perubahan bentuk posisional (*initial*, *medial*, *final*), ambiguitas titik diakritik, serta ketiadaan batas pemisah antarhuruf (ligatur). 
 
-Untuk menyelesaikan permasalahan tersebut, penelitian ini mengusulkan pengembangan model pengenalan sekuensial nirsegmentasi (*segmentation-free sequence recognition*) berbasis arsitektur gabungan CNN dan *Long Short-Term Memory* (CNN-LSTM) dengan *Transfer Learning*. Lapisan CNN memanfaatkan *backbone* modern hemat daya MobileNetV4 terbobot *pre-trained* sebagai pengekstraksi ciri visual spasial dari citra masukan *canvas digital*, sedangkan lapisan Recurrent/LSTM memodelkan dependensi urutan temporal huruf dari kanan ke kiri sesuai arah alami penulisan Arab. Data penelitian dikumpulkan secara mandiri melalui *canvas digital* interaktif dengan batas kosakata mencakup seluruh kata sambung pada buku Iqro 3, dibagi menggunakan skema *participant-wise split* guna menjamin keandalan generalisasi, serta diperkaya melalui teknik augmentasi morfologis. Kinerja model dievaluasi menggunakan metrik *exact sequence match accuracy*, *character-level accuracy*, dan *Character Error Rate* (CER). Penelitian ini diharapkan menghasilkan model pengenalan tulisan tangan bersambung yang akurat, ringan, dan siap diintegrasikan pada aplikasi evaluasi belajar mandiri.
+Untuk menyelesaikan permasalahan tersebut, penelitian ini mengusulkan pengembangan model pengenalan sekuensial nirsegmentasi (*segmentation-free sequence recognition*) berbasis arsitektur gabungan CNN dan *Long Short-Term Memory* (CNN-LSTM) dengan *Transfer Learning*. Lapisan CNN memanfaatkan *backbone* modern hemat daya MobileNetV3 terbobot *pre-trained* sebagai pengekstraksi ciri visual spasial dari citra masukan *canvas digital*, sedangkan lapisan Recurrent/LSTM memodelkan dependensi urutan temporal huruf dari kanan ke kiri sesuai arah alami penulisan Arab. Data penelitian dikumpulkan secara mandiri melalui *canvas digital* interaktif dengan batas kosakata mencakup seluruh kata sambung pada buku Iqro 3, dibagi menggunakan skema *participant-wise split* guna menjamin keandalan generalisasi, serta diperkaya melalui teknik augmentasi morfologis. Kinerja model dievaluasi menggunakan metrik *exact sequence match accuracy*, *character-level accuracy*, dan *Character Error Rate* (CER). Penelitian ini diharapkan menghasilkan model pengenalan tulisan tangan bersambung yang akurat, ringan, dan siap diintegrasikan pada aplikasi evaluasi belajar mandiri.
 
 <br><br>
 
-**Kata kunci:** *canvas digital*, CNN-LSTM, huruf Hijaiyah bersambung, Iqro 3, MobileNetV4, *transfer learning*.
+**Kata kunci:** *canvas digital*, CNN-LSTM, huruf Hijaiyah bersambung, Iqro 3, MobileNetV3, *transfer learning*.
 
 <div style="page-break-after: always;"></div>
 
@@ -172,11 +172,11 @@ Untuk menyelesaikan permasalahan tersebut, penelitian ini mengusulkan pengembang
 
 *Learning to read and write the Quranic script at the elementary level in Indonesia predominantly relies on the Iqro method. In the third book (Iqro 3), learners are introduced to cursive connected Hijaiyah letters forming short words consisting of two to three characters per image. To date, the handwriting evaluation process has depended on manual face-to-face feedback from teachers, which suffers from time constraints, subjective inconsistency, and limited independent practice opportunities outside the classroom. With the increasing adoption of interactive digital canvas interfaces on touchscreen devices, exported handwriting images hold great potential to be evaluated automatically by artificial intelligence as an assisting technology. A baseline study by Rahmatulloh et al. (2022) successfully optimized Convolutional Neural Networks (CNN) for isolated Hijaiyah character recognition, achieving 91% accuracy on a children's dataset (Hijja2), and recommended deploying handwriting recognition models into mobile applications. However, existing models remain limited to isolated characters and cannot handle connected cursive script characterized by dynamic positional shape variations (initial, medial, final), diacritical dot ambiguities, and ligature connections lacking clear character boundaries.*
 
-*To address these challenges, this study proposes a segmentation-free sequence recognition model based on a hybrid CNN and Long Short-Term Memory (CNN-LSTM) architecture empowered by Transfer Learning. The CNN feature extractor employs a pre-trained, computation-efficient MobileNetV4 backbone to capture spatial visual features from exported digital canvas images, while the recurrent LSTM layers model the temporal character sequence from right to left in accordance with natural Arabic script flow. The experimental dataset is collected independently via a digital canvas interface bounded by the vocabulary of Iqro 3, partitioned using a participant-wise split protocol to prevent data leakage, and augmented with morphological distortions. Model performance is comprehensively evaluated using exact sequence match accuracy, character-level accuracy, and Character Error Rate (CER). This research aims to deliver an accurate, lightweight handwriting recognition model ready for integration into interactive self-learning mobile applications.*
+*To address these challenges, this study proposes a segmentation-free sequence recognition model based on a hybrid CNN and Long Short-Term Memory (CNN-LSTM) architecture empowered by Transfer Learning. The CNN feature extractor employs a pre-trained, computation-efficient MobileNetV3 backbone to capture spatial visual features from exported digital canvas images, while the recurrent LSTM layers model the temporal character sequence from right to left in accordance with natural Arabic script flow. The experimental dataset is collected independently via a digital canvas interface bounded by the vocabulary of Iqro 3, partitioned using a participant-wise split protocol to prevent data leakage, and augmented with morphological distortions. Model performance is comprehensively evaluated using exact sequence match accuracy, character-level accuracy, and Character Error Rate (CER). This research aims to deliver an accurate, lightweight handwriting recognition model ready for integration into interactive self-learning mobile applications.*
 
 <br><br>
 
-**Keywords:** *connected Hijaiyah letters, CNN-LSTM, digital canvas, Iqro 3, MobileNetV4, transfer learning.*
+**Keywords:** *connected Hijaiyah letters, CNN-LSTM, digital canvas, Iqro 3, MobileNetV3, transfer learning.*
 
 <div style="page-break-after: always;"></div>
 
@@ -215,7 +215,7 @@ Untuk menyelesaikan permasalahan tersebut, penelitian ini mengusulkan pengembang
 | &nbsp;&nbsp;&nbsp;&nbsp;2.2 Karakteristik Huruf Hijaiyah Sambung dan Kurikulum Iqro 3 | 16 |
 | &nbsp;&nbsp;&nbsp;&nbsp;2.3 Media *Canvas Digital* dan Akuisisi Citra Tulisan Tangan | 18 |
 | &nbsp;&nbsp;&nbsp;&nbsp;2.4 *Convolutional Neural Network* (CNN) sebagai Pengekstrak Ciri | 19 |
-| &nbsp;&nbsp;&nbsp;&nbsp;2.5 *Transfer Learning* dan Arsitektur *MobileNetV4* | 20 |
+| &nbsp;&nbsp;&nbsp;&nbsp;2.5 *Transfer Learning* dan Arsitektur *MobileNetV3* | 20 |
 | &nbsp;&nbsp;&nbsp;&nbsp;2.6 *Long Short-Term Memory* (LSTM) untuk Pemodelan Urutan Temporal | 22 |
 | &nbsp;&nbsp;&nbsp;&nbsp;2.7 Paradigma Pengenalan Nirsegmentasi (*Segmentation-Free*) | 23 |
 | &nbsp;&nbsp;&nbsp;&nbsp;2.8 Formulasi Masalah *Multi-Label* dan Pemodelan Urutan | 24 |
@@ -229,7 +229,7 @@ Untuk menyelesaikan permasalahan tersebut, penelitian ini mengusulkan pengembang
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.3 Verifikasi Kontrol Kualitas Data (*Quality Control*) | 31 |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.4 Skema Pembagian Data Berbasis Partisipan (*Participant-Wise Split*) | 32 |
 | &nbsp;&nbsp;&nbsp;&nbsp;3.3 Pra-pemrosesan Citra Tulisan Tangan | 32 |
-| &nbsp;&nbsp;&nbsp;&nbsp;3.4 Perancangan Arsitektur Model CNN-LSTM MobileNetV4 | 34 |
+| &nbsp;&nbsp;&nbsp;&nbsp;3.4 Perancangan Arsitektur Model CNN-LSTM MobileNetV3 | 34 |
 | &nbsp;&nbsp;&nbsp;&nbsp;3.5 Skenario Pelatihan dan Penalaan Hiperparameter | 37 |
 | &nbsp;&nbsp;&nbsp;&nbsp;3.6 Skenario Pengujian dan Kajian Ablasi (*Ablation Study*) | 38 |
 | &nbsp;&nbsp;&nbsp;&nbsp;3.7 Jadwal dan Rencana Pelaksanaan Penelitian | 40 |
@@ -255,12 +255,12 @@ Untuk menyelesaikan permasalahan tersebut, penelitian ini mengusulkan pengembang
 | Nomor Gambar | Judul Gambar | Halaman |
 |:---|:---|---:|
 | Gambar 2.1 | Variasi Bentuk Glif Huruf Hijaiyah Berdasarkan Posisi dalam Kata | 17 |
-| Gambar 2.2 | Arsitektur Blok *Universal Inverted Bottleneck* (UIB) pada MobileNetV4 | 21 |
+| Gambar 2.2 | Arsitektur Blok *Inverted Residual* dengan Modul *Squeeze-and-Excitation* (SE) pada MobileNetV3 | 21 |
 | Gambar 2.3 | Struktur Sel Rekuren *Long Short-Term Memory* (LSTM) dengan Tiga *Gates* | 23 |
 | Gambar 3.1 | Diagram Alir Tahapan Pelaksanaan Penelitian | 28 |
 | Gambar 3.2 | Diagram Alur Protokol Akuisisi Data Tulisan Tangan Berbasis *Prompt Canvas* | 30 |
 | Gambar 3.3 | Tahapan Pra-pemrosesan Citra Masukan Tulisan Tangan Bersambung | 33 |
-| Gambar 3.4 | Diagram Arsitektur Lengkap Model CNN-LSTM dengan *Backbone* MobileNetV4 | 35 |
+| Gambar 3.4 | Diagram Arsitektur Lengkap Model CNN-LSTM dengan *Backbone* MobileNetV3 | 35 |
 
 <div style="page-break-after: always;"></div>
 
@@ -276,7 +276,7 @@ Untuk menyelesaikan permasalahan tersebut, penelitian ini mengusulkan pengembang
 |:---|:---|---:|
 | Tabel 2.1 | Matriks Sintesis Penelitian Terdahulu dan Identifikasi Celah Riset (*Research Gap*) | 14 |
 | Tabel 2.2 | Perbandingan Karakteristik Klasifikasi Multi-Label Klasik vs Pengenalan Urutan Karakter | 25 |
-| Tabel 3.1 | Rincian Konfigurasi Parameter Lapisan Arsitektur CNN-LSTM MobileNetV4 | 36 |
+| Tabel 3.1 | Rincian Konfigurasi Parameter Lapisan Arsitektur CNN-LSTM MobileNetV3 | 36 |
 | Tabel 3.2 | Rencana Matriks Skenario Eksperimen dan Kajian Ablasi (*Ablation Study*) | 39 |
 | Tabel 3.3 | Matriks Jadwal Rencana Pelaksanaan Kegiatan Penelitian Skripsi | 41 |
 
@@ -307,9 +307,9 @@ Untuk menyelesaikan permasalahan tersebut, penelitian ini mengusulkan pengembang
 | OCR | *Optical Character Recognition* (Pengenalan Karakter Optis) |
 | QC | *Quality Control* (Kendali Mutu Data) |
 | ReLU | *Rectified Linear Unit* (Fungsi Aktivasi Non-Linear) |
+| SE | *Squeeze-and-Excitation* (Modul Kalibrasi Kanal pada MobileNetV3) |
 | SOTA | *State of the Art* (Capaian Terbaik Terkini) |
 | TL | *Transfer Learning* (Pembelajaran Transfer Bobot) |
-| UIB | *Universal Inverted Bottleneck* (Blok Bangunan MobileNetV4) |
 | UISI | Universitas Internasional Semen Indonesia |
 | WER | *Word Error Rate* |
 
@@ -343,9 +343,9 @@ Kompleksitas di atas menjadi kian menantang apabila diterapkan pada tulisan tang
 
 Guna mengatasi kelemahan mendasar dari segmentasi fisik tersebut, paradigma pengenalan sekuensial nirsegmentasi (*segmentation-free sequence recognition*) menjadi solusi paling mutakhir dan menjanjikan. Pendekatan ini memperlakukan citra kata sebagai barisan representasi visual utuh yang dipetakan secara langsung menjadi urutan label karakter (*sequence of characters*). Integrasi arsitektur hibrida antara *Convolutional Neural Network* (CNN) dan *Long Short-Term Memory* (LSTM) terbukti sangat tangguh dalam mengenali barisan teks tulisan tangan bersambung (Saini dkk., 2024; Peng, 2024). Pada skema hibrida ini, lapisan konvolusi CNN bertindak sebagai pengekstraksi ciri spasial tingkat tinggi dari citra masukan, sedangkan lapisan rekuren LSTM membaca dependensi kontekstual urutan karakter secara temporal dari arah kanan ke kiri sesuai arah alami penulisan aksara Arab, sehingga mampu mengenali kata bersambung secara utuh tanpa memerlukan pemotongan karakter secara fisik (Mosbah dkk., 2024).
 
-Selain tantangan morfologi sambung, kendala praktis krusial dalam merealisasikan rekomendasi Rahmatulloh dkk. (2022) menuju aplikasi interaktif adalah terbatasnya jumlah data latih citra *canvas digital* mandiri dan tuntutan efisiensi komputasi pada perangkat bergerak. Melatih jaringan konvolusi dalam (*deep CNN*) dari awal (*from scratch*) dengan data berskala terbatas sangat rentan memicu terjadinya *overfitting* serta memperlambat konvergensi model. Dalam konteks ini, penerapan *Transfer Learning* menjadi strategi kunci dengan memanfaatkan bobot yang telah dipelajari oleh model terlatih sebelumnya sebagai pengekstraksi representasi visual yang kaya dan tergeneralisasi (Lamtougui dkk., 2024; Masruroh dkk., 2023). Sejalan dengan perkembangan komputasi cerdas pada perangkat berdaya rendah (*mobile and edge computing*), pemilihan arsitektur *backbone* modern seperti **MobileNetV4** menawarkan keunggulan latensi sangat rendah, jumlah parameter yang ringkas, dan akurasi tinggi berkat penggunaan blok *Universal Inverted Bottleneck* (UIB) (El Khayati dkk., 2025). Karakteristik tersebut sangat ideal untuk mendukung inferensi cepat secara luring pada perangkat pembelajaran interaktif.
+Selain tantangan morfologi sambung, kendala praktis krusial dalam merealisasikan rekomendasi Rahmatulloh dkk. (2022) menuju aplikasi interaktif adalah terbatasnya jumlah data latih citra *canvas digital* mandiri dan tuntutan efisiensi komputasi pada perangkat bergerak. Melatih jaringan konvolusi dalam (*deep CNN*) dari awal (*from scratch*) dengan data berskala terbatas sangat rentan memicu terjadinya *overfitting* serta memperlambat konvergensi model. Dalam konteks ini, penerapan *Transfer Learning* menjadi strategi kunci dengan memanfaatkan bobot yang telah dipelajari oleh model terlatih sebelumnya sebagai pengekstraksi representasi visual yang kaya dan tergeneralisasi (Lamtougui dkk., 2024; Masruroh dkk., 2023). Sejalan dengan perkembangan komputasi cerdas pada perangkat berdaya rendah (*mobile and edge computing*), pemilihan arsitektur *backbone* modern seperti **MobileNetV3** menawarkan keunggulan latensi sangat rendah, jumlah parameter yang ringkas (sekitar 5,4 juta parameter), dan akurasi tinggi berkat penggunaan blok *inverted residual* dengan modul *Squeeze-and-Excitation* (SE) serta aktivasi *hard-swish* (Howard dkk., 2019; El Khayati dkk., 2025). Karakteristik tersebut sangat ideal untuk mendukung inferensi cepat secara luring pada perangkat pembelajaran interaktif.
 
-Kajian terhadap literatur terkini menunjukkan bahwa penelitian pengenalan tulisan tangan Arab bersambung sejauh ini masih terpusat pada dokumen pindaian kertas statis tulisan orang dewasa (seperti dataset IFN/ENIT) dengan pendekatan klasifikasi kata utuh secara holistik (*whole-word classification*) (Lamtougui dkk., 2024; Ahmed dkk., 2021). Hingga saat ini, belum ada penelitian yang menjembatani celah penelitian (*research gap*) antara model pengenalan huruf tunggal yang dirintis oleh Rahmatulloh dkk. (2022) dengan pengenalan rangkaian huruf bersambung pendek (dua hingga tiga karakter) berbasis ekspor *canvas digital* kurikulum Iqro 3 menggunakan kombinasi *transfer learning* MobileNetV4 dan LSTM secara nirsegmentasi.
+Kajian terhadap literatur terkini menunjukkan bahwa penelitian pengenalan tulisan tangan Arab bersambung sejauh ini masih terpusat pada dokumen pindaian kertas statis tulisan orang dewasa (seperti dataset IFN/ENIT) dengan pendekatan klasifikasi kata utuh secara holistik (*whole-word classification*) (Lamtougui dkk., 2024; Ahmed dkk., 2021). Hingga saat ini, belum ada penelitian yang menjembatani celah penelitian (*research gap*) antara model pengenalan huruf tunggal yang dirintis oleh Rahmatulloh dkk. (2022) dengan pengenalan rangkaian huruf bersambung pendek (dua hingga tiga karakter) berbasis ekspor *canvas digital* kurikulum Iqro 3 menggunakan kombinasi *transfer learning* MobileNetV3 dan LSTM secara nirsegmentasi.
 
 Berdasarkan latar belakang permasalahan, arah perkembangan teknologi pembantu (*assisting technology*), serta pijakan riset acuan Rahmatulloh dkk. (2022), penelitian skripsi ini mengusulkan pengembangan model **Klasifikasi Multi-Label untuk Pengenalan Huruf Hijaiyah Sambung Menggunakan Transfer Learning**. Model ini dirancang untuk memproses citra digital hasil ekspor *canvas digital* secara *segmentation-free* dan memprediksi urutan label karakter yang terkandung di dalamnya secara tepat dari kanan ke kiri. Dengan demikian, penelitian ini diharapkan dapat memberikan kontribusi nyata dalam menghadirkan sistem kecerdasan buatan yang akurat dan efisien untuk mendukung evaluasi mandiri dalam pembelajaran literasi Al-Qur'an tingkat dasar.
 
@@ -355,7 +355,7 @@ Berdasarkan latar belakang permasalahan, arah perkembangan teknologi pembantu (*
 
 Berdasarkan uraian latar belakang di atas, rumusan masalah dalam penelitian proposal skripsi ini adalah:
 1. Bagaimana merancang dan membangun dataset citra tulisan tangan huruf Hijaiyah bersambung berbasis ekspor *canvas digital* yang mencakup seluruh kosakata kata sambung pada buku Iqro 3?
-2. Bagaimana mengimplementasikan arsitektur CNN-LSTM dengan memanfaatkan *transfer learning* MobileNetV4 untuk mengenali urutan huruf Hijaiyah bersambung pada citra tanpa melalui tahapan segmentasi manual?
+2. Bagaimana mengimplementasikan arsitektur CNN-LSTM dengan memanfaatkan *transfer learning* MobileNetV3 untuk mengenali urutan huruf Hijaiyah bersambung pada citra tanpa melalui tahapan segmentasi manual?
 3. Bagaimana kinerja model CNN-LSTM dengan *transfer learning* dalam mengenali urutan karakter huruf Hijaiyah bersambung berdasarkan metrik evaluasi pengenalan sekuensial (*exact sequence match accuracy*, *character accuracy*, dan *Character Error Rate*)?
 
 <br>
@@ -364,7 +364,7 @@ Berdasarkan uraian latar belakang di atas, rumusan masalah dalam penelitian prop
 
 Sesuai dengan rumusan masalah yang diajukan, tujuan yang ingin dicapai dalam penelitian ini adalah:
 1. Menghasilkan dataset citra tulisan tangan huruf Hijaiyah bersambung berbasis ekspor *canvas digital* yang terstruktur dan representatif mengacu pada materi kosakata buku Iqro 3.
-2. Mengembangkan model pengenalan tulisan tangan bersambung berbasis arsitektur gabungan CNN-LSTM dengan *transfer learning* MobileNetV4 yang mampu memetakan citra secara langsung menjadi urutan karakter secara nirsegmentasi (*segmentation-free*).
+2. Mengembangkan model pengenalan tulisan tangan bersambung berbasis arsitektur gabungan CNN-LSTM dengan *transfer learning* MobileNetV3 yang mampu memetakan citra secara langsung menjadi urutan karakter secara nirsegmentasi (*segmentation-free*).
 3. Mengukur, menganalisis, dan mengevaluasi kinerja performa model dalam memprediksi urutan karakter huruf Hijaiyah bersambung menggunakan metrik *exact sequence match accuracy*, akurasi per karakter, dan *Character Error Rate* (CER).
 
 <br>
@@ -391,7 +391,7 @@ Agar penelitian ini tetap terfokus, mendalam, dan mencapai sasaran yang terukur,
 1. Objek pengenalan dibatasi pada citra tulisan tangan huruf Hijaiyah bersambung yang diekspor dari media *canvas digital* ke dalam format berkas citra digital 2 dimensi (pengenalan luring/*offline handwriting recognition*), bukan berupa data runtun waktu koordinat goresan pena (*stroke time-series*).
 2. Kosakata tulisan tangan dibatasi secara ketat pada seluruh kata sambung yang termuat di dalam buku **Iqro 3**, dengan panjang rangkaian karakter terdiri atas dua hingga tiga huruf per citra.
 3. Citra masukan bersumber dari penulisan pada *canvas digital* dengan bantuan tampilan pola garis titik-titik panduan (*tracing dots*).
-4. Arsitektur model yang dikembangkan dibatasi pada kombinasi jaringan konvolusional (*Convolutional Neural Network*) dengan *backbone* MobileNetV4 terbobot pra-pelatihan (*transfer learning*) dan jaringan *Long Short-Term Memory* (LSTM) untuk memodelkan urutan temporal karakter dari kanan ke kiri.
+4. Arsitektur model yang dikembangkan dibatasi pada kombinasi jaringan konvolusional (*Convolutional Neural Network*) dengan *backbone* MobileNetV3 terbobot pra-pelatihan (*transfer learning*) dan jaringan *Long Short-Term Memory* (LSTM) untuk memodelkan urutan temporal karakter dari kanan ke kiri.
 5. Penelitian berfokus penuh pada perancangan dataset citra, rekayasa arsitektur model, pelatihan, penalaan hiperparameter, serta evaluasi performa pengenalan; perancangan antarmuka gamifikasi dan integrasi aplikasi secara menyeluruh dikerjakan secara terpisah oleh pihak kolaborator.
 6. Evaluasi model difokuskan pada ketepatan prediksi urutan karakter teks dan tidak mencakup penilaian kaidah hukum tajwid, panjang-pendek bacaan (*mad*), maupun aspek estetika kaligrafi (*khat*).
 
@@ -404,9 +404,9 @@ Proposal skripsi ini disusun dengan sistematika penulisan yang terbagi menjadi t
 - **BAB 1 PENDAHULUAN**  
   Bab ini memuat uraian latar belakang permasalahan yang mengaitkan konteks teknologi pembantu di era modern, penelitian acuan Rahmatulloh dkk. (2022), urgensi pengenalan huruf Hijaiyah bersambung pada kurikulum Iqro 3, rumusan masalah, tujuan penelitian, manfaat penelitian teoretis dan praktis, ruang lingkup batasan masalah, serta sistematika penulisan.
 - **BAB 2 KAJIAN PUSTAKA DAN DASAR TEORI**  
-  Bab ini memuat tinjauan pustaka mengenai penelitian terdahulu yang relevan (*state of the art*), analisis celah penelitian (*research gap*), serta landasan teori komprehensif mengenai morfologi aksara Hijaiyah sambung, materi Iqro 3, media *canvas digital*, ekstraksi ciri visual CNN, *transfer learning*, arsitektur MobileNetV4, jaringan LSTM, konsep pengenalan nirsegmentasi (*segmentation-free*), formulasi *multi-label* urutan, dan metrik evaluasi pengenalan teks sekuensial.
+  Bab ini memuat tinjauan pustaka mengenai penelitian terdahulu yang relevan (*state of the art*), analisis celah penelitian (*research gap*), serta landasan teori komprehensif mengenai morfologi aksara Hijaiyah sambung, materi Iqro 3, media *canvas digital*, ekstraksi ciri visual CNN, *transfer learning*, arsitektur MobileNetV3, jaringan LSTM, konsep pengenalan nirsegmentasi (*segmentation-free*), formulasi *multi-label* urutan, dan metrik evaluasi pengenalan teks sekuensial.
 - **BAB 3 METODOLOGI PENELITIAN**  
-  Bab ini menguraikan tahapan dan metodologi pelaksanaan penelitian secara sistematis, meliputi diagram alir penelitian, protokol inventarisasi kosakata dan akuisisi data tulisan tangan *canvas*, kontrol kualitas dan pembagian data berbasis partisipan (*participant-wise split*), tahapan pra-pemrosesan citra, perancangan arsitektur model CNN-LSTM MobileNetV4, skenario pelatihan dua fase (*two-stage training*), rencana eksperimen dan kajian ablasi, serta matriks jadwal pelaksanaan penelitian skripsi.
+  Bab ini menguraikan tahapan dan metodologi pelaksanaan penelitian secara sistematis, meliputi diagram alir penelitian, protokol inventarisasi kosakata dan akuisisi data tulisan tangan *canvas*, kontrol kualitas dan pembagian data berbasis partisipan (*participant-wise split*), tahapan pra-pemrosesan citra, perancangan arsitektur model CNN-LSTM MobileNetV3, skenario pelatihan dua fase (*two-stage training*), rencana eksperimen dan kajian ablasi, serta matriks jadwal pelaksanaan penelitian skripsi.
 
 <div style="page-break-after: always;"></div>
 
@@ -452,11 +452,11 @@ Ringkasan perbandingan antara penelitian-penelitian terdahulu dan posisi kebarua
 | 5. | **Peng (2024)** | Teks baris tulisan tangan multibahasa; KHATT Arab | CNN + BiLSTM + CTC (*segmentation-free*) | Akurasi rata-rata 91,13%; KHATT Arab tersulit (58,02%) | Tanpa *transfer learning*; akurasi aksara Arab kursif masih rendah; membutuhkan backbone visual modern. |
 | 6. | **Mosbah dkk. (2024)** | Dokumen Arab teks cetak & tulis; IFN/ENIT | CRNN (CNN + BLSTM + CTC loss) | WER 1,09% pada IFN/ENIT kata tertutup | Kosakata tertutup nama kota dewasa pindaian kertas; belum menyentuh citra *canvas* anak/pemula. |
 | 7. | **Saini dkk. (2024)** | Kata tulisan tangan sambung; dataset IAM | CNN 11-layer + BiLSTM 5-layer + CTC | CER validasi 8,65% tanpa segmentasi manual | Berorientasi aksara Latin (kiri ke kanan); tanpa variasi bentuk posisional dan titik diakritik Arab. |
-| 8. | **Penelitian yang Diusulkan (2026)** | Kata sambung Hijaiyah (2–3 huruf); ekspor *canvas digital*; buku **Iqro 3** | **CNN-LSTM** (*backbone* **MobileNetV4** terbobot *transfer learning*) | Target: Pengenalan sekuensial nirsegmentasi akurat & efisien | **Mengisi celah riset:** Menggabungkan *transfer learning* MobileNetV4 hemat komputasi dan LSTM untuk mengenali urutan huruf Hijaiyah sambung Iqro 3 hasil *canvas digital*. |
+| 8. | **Penelitian yang Diusulkan (2026)** | Kata sambung Hijaiyah (2–3 huruf); ekspor *canvas digital*; buku **Iqro 3** | **CNN-LSTM** (*backbone* **MobileNetV3** terbobot *transfer learning*) | Target: Pengenalan sekuensial nirsegmentasi akurat & efisien | **Mengisi celah riset:** Menggabungkan *transfer learning* MobileNetV3 hemat komputasi dan LSTM untuk mengenali urutan huruf Hijaiyah sambung Iqro 3 hasil *canvas digital*. |
 
 <br>
 
-Berdasarkan sintesis pada Tabel 2.1, terlihat jelas adanya celah penelitian yang belum terpecahkan: belum ada penelitian yang menggabungkan efisiensi *transfer learning* arsitektur modern MobileNetV4 dengan pemodelan urutan LSTM untuk mengenali **urutan huruf Hijaiyah bersambung (2 hingga 3 huruf) secara nirsegmentasi pada citra hasil ekspor *canvas digital* kurikulum Iqro 3**. Penelitian ini secara langsung mengisi ruang kosong tersebut sekaligus menjawab rekomendasi penelitian Rahmatulloh dkk. (2022).
+Berdasarkan sintesis pada Tabel 2.1, terlihat jelas adanya celah penelitian yang belum terpecahkan: belum ada penelitian yang menggabungkan efisiensi *transfer learning* arsitektur modern MobileNetV3 dengan pemodelan urutan LSTM untuk mengenali **urutan huruf Hijaiyah bersambung (2 hingga 3 huruf) secara nirsegmentasi pada citra hasil ekspor *canvas digital* kurikulum Iqro 3**. Penelitian ini secara langsung mengisi ruang kosong tersebut sekaligus menjawab rekomendasi penelitian Rahmatulloh dkk. (2022).
 
 <br>
 
@@ -521,13 +521,13 @@ Melalui penumpukan lapisan konvolusional dan reduksi dimensi spasial, CNN mampu 
 
 <br>
 
-### 2.5 *Transfer Learning* dan Arsitektur MobileNetV4
+### 2.5 *Transfer Learning* dan Arsitektur MobileNetV3
 
 *Transfer Learning* merupakan paradigma dalam pembelajaran mesin di mana pengetahuan berupa representasi bobot yang telah dipelajari oleh suatu model pada domain tugas sumber yang berskala masif (seperti klasifikasi 1,4 juta citra pada dataset ImageNet) ditransfer dan dimanfaatkan untuk menyelesaikan tugas pada domain sasaran baru yang memiliki keterbatasan jumlah data latih.
 
 Dalam pengenalan tulisan tangan pada dataset kanvas mandiri berukuran terbatas, melatih arsitektur jaringan dalam dari nol (*from scratch*) sangat rentan menimbulkan fenomena *overfitting*, di mana model menghafal derau (*noise*) data latih dan gagal melakukan generalisasi pada tulisan pengguna baru (Lamtougui dkk., 2024). Dengan memanfaatkan bobot pra-pelatihan (*pre-trained weights*), lapisan konvolusi awal model telah memiliki kapabilitas mendeteksi fitur-fitur visual fundamental secara matang.
 
-Penelitian ini mengadopsi arsitektur *backbone* modern **MobileNetV4** yang diperkenalkan oleh Google pada tahun 2024. MobileNetV4 dirancang khusus untuk memberikan efisiensi komputasi maksimal pada perangkat bergerak (*mobile devices*) melalui integrasi blok **Universal Inverted Bottleneck (UIB)**. Sebagaimana diilustrasikan pada Gambar 2.2, blok UIB menyatukan fleksibilitas antara *Inverted Bottleneck* (IB), *Conv-Forward*, dan *Depthwise Separable Convolution* ke dalam satu modul terpadu.
+Penelitian ini mengadopsi arsitektur *backbone* modern **MobileNetV3** yang diperkenalkan oleh Howard dkk. dari Google pada tahun 2019. MobileNetV3 dirancang khusus untuk memberikan efisiensi komputasi maksimal pada perangkat bergerak (*mobile devices*) melalui kombinasi blok *inverted residual*, modul **Squeeze-and-Excitation (SE)**, dan fungsi aktivasi **hard-swish** yang dihasilkan melalui *platform-aware neural architecture search*. Sebagaimana diilustrasikan pada Gambar 2.2, setiap blok *bottleneck* memperluas kanal dengan konvolusi $1\times1$, mengekstraksi fitur spasial dengan *depthwise convolution*, mengkalibrasi bobot kanal melalui modul SE, lalu memproyeksikan kembali kanal dengan konvolusi $1\times1$ sebelum ditambahkan ke jalur residual (Howard dkk., 2019).
 
 <br>
 
@@ -548,6 +548,12 @@ Masukan (C kanal)
        │
        ▼
 ┌────────────────────────────────────────┐
+│ Modul Squeeze-and-Excitation (SE)       │
+│ (Kalibrasi Bobot Kanal via GAP + FC)    │
+└────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────┐
 │ Konvolusi 1×1 (Proyeksi Reduksi Kanal) │
 └────────────────────────────────────────┘
        │
@@ -555,15 +561,15 @@ Masukan (C kanal)
 Keluaran Blok
 ```
 
-**Gambar 2.2 Arsitektur Blok *Universal Inverted Bottleneck* (UIB) pada MobileNetV4**
+**Gambar 2.2 Arsitektur Blok *Inverted Residual* dengan Modul *Squeeze-and-Excitation* (SE) pada MobileNetV3**
 
 </div>
 
 <br>
 
-Keunggulan utama MobileNetV4 dibandingkan arsitektur CNN klasik (seperti VGG16 atau ResNet50) adalah rasio efisiensi parameter yang sangat superior. MobileNetV4 varian *Small/Medium* hanya memiliki parameter sekitar 3,8 hingga 11 juta (berbanding 138 juta pada VGG16), namun mampu menghasilkan akurasi yang setara atau lebih tinggi dengan konsumsi memori dan latensi inferensi yang jauh lebih rendah. Karakteristik ini sangat selaras dengan visi implementasi aplikasi *mobile* yang direkomendasikan oleh Rahmatulloh dkk. (2022).
+Keunggulan utama MobileNetV3 dibandingkan arsitektur CNN klasik (seperti VGG16 atau ResNet50) adalah rasio efisiensi parameter yang sangat superior. MobileNetV3 varian *Large* hanya memiliki sekitar 5,4 juta parameter dan varian *Small* sekitar 2,5 juta (berbanding 138 juta pada VGG16), namun mampu menghasilkan akurasi yang kompetitif dengan konsumsi memori dan latensi inferensi yang jauh lebih rendah. Karakteristik ini sangat selaras dengan visi implementasi aplikasi *mobile* yang direkomendasikan oleh Rahmatulloh dkk. (2022).
 
-Dalam implementasinya, strategi *transfer learning* dijalankan melalui skema penalaan halus bertahap (*two-stage fine-tuning*). Pada tahap awal, lapisan bawah *backbone* dibekukan (*frozen*) agar bobot visual dasar tidak rusak, sementara kepala model (*head*) dilatih untuk beradaptasi dengan domain aksara Arab. Pada tahap kedua, beberapa blok atas MobileNetV4 dibuka kuncinya (*unfrozen*) untuk dilatih bersamaan dengan laju pembelajaran (*learning rate*) rendah (misalnya $10^{-4}$ atau $10^{-5}$) guna memetakan detail visual spesifik huruf Hijaiyah (Masruroh dkk., 2023; Lamtougui dkk., 2024).
+Dalam implementasinya, strategi *transfer learning* dijalankan melalui skema penalaan halus bertahap (*two-stage fine-tuning*). Pada tahap awal, lapisan bawah *backbone* dibekukan (*frozen*) agar bobot visual dasar tidak rusak, sementara kepala model (*head*) dilatih untuk beradaptasi dengan domain aksara Arab. Pada tahap kedua, beberapa blok atas MobileNetV3 dibuka kuncinya (*unfrozen*) untuk dilatih bersamaan dengan laju pembelajaran (*learning rate*) rendah (misalnya $10^{-4}$ atau $10^{-5}$) guna memetakan detail visual spesifik huruf Hijaiyah (Masruroh dkk., 2023; Lamtougui dkk., 2024).
 
 <br>
 
@@ -648,7 +654,7 @@ Namun demikian, pada pengenalan kata bersambung, urutan kemunculan huruf memegan
 | **Definisi Luaran** | Himpunan label aktif biner $\{0, 1\}^K$ tanpa urutan | Barisan sekuensial label karakter $\mathbf{y} = (y_1, y_2, \dots, y_L)$ |
 | **Urutan Karakter** | Diabaikan (*order-invariant*) | Wajib dipertahankan (kanan ke kiri) |
 | **Karakter Berulang** | Tidak dapat menangani kemunculan ganda (hanya 0 atau 1) | Mampu memprediksi huruf berulang pada posisi berbeda |
-| **Arsitektur Model** | CNN *standalone* + Sigmoid Output Layer | Gabungan CNN (MobileNetV4) + Sequence Layer (LSTM) |
+| **Arsitektur Model** | CNN *standalone* + Sigmoid Output Layer | Gabungan CNN (MobileNetV3) + Sequence Layer (LSTM) |
 | **Relevansi Kata Sambung** | Rendah (tidak dapat membedakan permutasi kata) | Sangat tinggi (mendeteksi kata Iqro 3 secara presisi) |
 
 <br>
@@ -723,7 +729,7 @@ Penelitian ini dilaksanakan secara bertahap dan sistematis melalui enam tahapan 
                                            │
                                            ▼
                         ┌──────────────────────────────────────┐
-                        │  5. Pemodelan CNN-LSTM MobileNetV4   │
+                        │  5. Pemodelan CNN-LSTM MobileNetV3   │
                         │  (Transfer Learning Two-Stage Train) │
                         └──────────────────┬───────────────────┘
                                            │
@@ -741,11 +747,11 @@ Penelitian ini dilaksanakan secara bertahap dan sistematis melalui enam tahapan 
 <br>
 
 Rincian dari setiap tahapan penelitian pada Gambar 3.1 dijelaskan sebagai berikut:
-1. **Studi Literatur:** Mempelajari landasan teoritis mengenai morfologi aksara Hijaiyah bersambung, menelaah penelitian acuan Rahmatulloh dkk. (2022), serta mengkaji metode mutakhir arsitektur CNN-LSTM, *transfer learning* MobileNetV4, dan paradigma nirsegmentasi.
+1. **Studi Literatur:** Mempelajari landasan teoritis mengenai morfologi aksara Hijaiyah bersambung, menelaah penelitian acuan Rahmatulloh dkk. (2022), serta mengkaji metode mutakhir arsitektur CNN-LSTM, *transfer learning* MobileNetV3, dan paradigma nirsegmentasi.
 2. **Pengumpulan Dataset Canvas Iqro 3:** Merancang antarmuka *canvas digital* interaktif, merekap seluruh perbendaharaan kata bersambung pada buku Iqro 3, dan menyelenggarakan kegiatan pengambilan data tulisan tangan terpandu *prompt*.
 3. **Kontrol Kualitas dan Pembagian Data:** Memeriksa kesahihan citra goresan terhadap label target serta membagi dataset menjadi subset pelatihan, validasi, dan pengujian berbasis penulis (*participant-wise split*).
 4. **Pra-pemrosesan Citra:** Melakukan normalisasi format citra, konversi aras keabuan (*grayscale*), inversi biner, pemotongan area goresan (*bounding box crop*), penyesuaian ukuran proporsional (*aspect ratio preserving resize*), dan augmentasi citra.
-5. **Pemodelan CNN-LSTM dan Pelatihan:** Membangun arsitektur gabungan pengekstraksi ciri MobileNetV4 dan pembaca sekuensial LSTM, kemudian melatih model menggunakan skema *two-stage fine-tuning*.
+5. **Pemodelan CNN-LSTM dan Pelatihan:** Membangun arsitektur gabungan pengekstraksi ciri MobileNetV3 dan pembaca sekuensial LSTM, kemudian melatih model menggunakan skema *two-stage fine-tuning*.
 6. **Evaluasi dan Analisis Performa:** Menguji kinerja model menggunakan metrik *exact match*, akurasi karakter, dan CER, serta melakukan kajian ablasi (*ablation study*) dan analisis matriks kekeliruan (*confusion matrix*).
 
 <br>
@@ -859,7 +865,7 @@ Rincian teknis dari setiap tahapan pra-pemrosesan adalah sebagai berikut:
 
 <br>
 
-### 3.4 Perancangan Arsitektur Model CNN-LSTM MobileNetV4
+### 3.4 Perancangan Arsitektur Model CNN-LSTM MobileNetV3
 
 Arsitektur model yang diusulkan menggabungkan modul pengekstraksi ciri spasial berbasis CNN dan modul pemodel urutan temporal berbasis LSTM secara *end-to-end*. Diagram arsitektur lengkap disajikan pada Gambar 3.4.
 
@@ -872,24 +878,24 @@ Citra Masukan Canvas (H=64, W=256, C=3)
                  │
                  ▼
 ┌────────────────────────────────────────────────────────┐
-│             BACKBONE KONVOLUSI: MobileNetV4            │
-│ (Universal Inverted Bottleneck / UIB Blocks)           │
+│             BACKBONE KONVOLUSI: MobileNetV3            │
+│ (Inverted Residual + Squeeze-and-Excitation / SE)      │
 │ *Bobot Awal Pra-Pelatihan ImageNet (Transfer Learning)*│
 └────────────────────────────────────────────────────────┘
-                 │  Peta Fitur Visual: (H'=1, W'=16, D=512)
+                 │  Peta Fitur Visual: (H'=2, W'=8, D=960)
                  ▼
 ┌────────────────────────────────────────────────────────┐
 │            LAPISAN MAP-TO-SEQUENCE & DENSE             │
-│ (Meratakan Fitur Spasial Menjadi Barisan Kolom W'=16)  │
+│ (Meratakan Fitur Spasial Menjadi Barisan Kolom W'=8)   │
 └────────────────────────────────────────────────────────┘
-                 │  Vektor Sekuensial: (Batch, W'=16, 256)
+                 │  Vektor Sekuensial: (Batch, W'=8, 960)
                  ▼
 ┌────────────────────────────────────────────────────────┐
 │           LAPISAN PEMODEL URUTAN: BiLSTM               │
 │ (2 Lapisan Bidirectional LSTM, 256 Unit Tersembunyi)   │
 │ *Membaca Konteks Urutan Temporal Karakter Kanan->Kiri* │
 └────────────────────────────────────────────────────────┘
-                 │  Keadaan Tersembunyi: (Batch, W'=16, 512)
+                 │  Keadaan Tersembunyi: (Batch, W'=8, 512)
                  ▼
 ┌────────────────────────────────────────────────────────┐
 │            LAPISAN PROYEKSI & OUTPUT DEKODER           │
@@ -901,24 +907,24 @@ Citra Masukan Canvas (H=64, W=256, C=3)
 Prediksi Urutan Karakter Teks: [Char_1, Char_2, Char_3]
 ```
 
-**Gambar 3.4 Diagram Arsitektur Lengkap Model CNN-LSTM dengan *Backbone* MobileNetV4**
+**Gambar 3.4 Diagram Arsitektur Lengkap Model CNN-LSTM dengan *Backbone* MobileNetV3**
 
 </div>
 
 <br>
 
-Spesifikasi detail konfigurasi lapisan pada model CNN-LSTM MobileNetV4 dirinci pada Tabel 3.1.
+Spesifikasi detail konfigurasi lapisan pada model CNN-LSTM MobileNetV3 dirinci pada Tabel 3.1.
 
 <br>
 
-**Tabel 3.1 Rincian Konfigurasi Parameter Lapisan Arsitektur CNN-LSTM MobileNetV4**
+**Tabel 3.1 Rincian Konfigurasi Parameter Lapisan Arsitektur CNN-LSTM MobileNetV3**
 
 | Blok Lapisan | Tipe Lapisan / Operasi | Dimensi Keluaran (*Shape*) | Parameter & Konfigurasi |
 |:---|:---|:---|:---|
 | **Input Layer** | Image Input | $(64, 256, 3)$ | Citra kanvas ternormalisasi |
-| **CNN Backbone** | MobileNetV4 (UIB Blocks) | $(2, 8, 512)$ | Bobot *pre-trained*; stride terpadu |
-| **Pooling Spasial** | Max/Average Pooling (2×1) | $(1, 8, 512)$ | Menghilangkan dimensi vertikal ($H'=1$) |
-| **Reshape Layer** | Map-to-Sequence Permute | $(8, 512)$ | Mentransformasikan ke runtun temporal |
+| **CNN Backbone** | MobileNetV3 (Inverted Residual + SE) | $(2, 8, 960)$ | Bobot *pre-trained*; stride terpadu |
+| **Pooling Spasial** | Max/Average Pooling (2×1) | $(1, 8, 960)$ | Menghilangkan dimensi vertikal ($H'=1$) |
+| **Reshape Layer** | Map-to-Sequence Permute | $(8, 960)$ | Mentransformasikan ke runtun temporal |
 | **Linear Projection**| Fully Connected Dense + ReLU | $(8, 256)$ | Dropout rate = $0.3$ |
 | **Sequence Layer 1**| Bidirectional LSTM (BiLSTM) | $(8, 512)$ | 256 unit per arah; return sequences = True |
 | **Sequence Layer 2**| Bidirectional LSTM (BiLSTM) | $(8, 512)$ | 256 unit per arah; return sequences = True |
@@ -936,10 +942,10 @@ Mekanisme decoding urutan karakter memanfaatkan algoritma *Connectionist Tempora
 Pelatihan arsitektur hibrida CNN-LSTM dengan *transfer learning* dilakukan menggunakan protokol **pelatihan dua fase (*two-stage training protocol*)** untuk memastikan kestabilan konvergensi dan mencegah fenomena *catastrophic forgetting* (Masruroh dkk., 2023; Lamtougui dkk., 2024):
 
 1. **Fase 1 — Pembekuan Bobot Dasar (*Feature Extraction / Warm-Up Phase*):**  
-   Seluruh bobot parameter pada *backbone* konvolusi MobileNetV4 dibekukan (*frozen*). Pelatihan difokuskan secara eksklusif pada lapisan proyeksi, lapisan rekuren BiLSTM, dan lapisan klasifikasi luaran. Fase ini dijalankan selama **15 hingga 20 epoch** menggunakan pengoptimal **ADAM** dengan laju pembelajaran (*learning rate*) $\eta = 10^{-3}$, ukuran *batch* 32, dan fungsi pembatas gradien (*gradient clipping*) dengan nilai ambang 5.0.
+   Seluruh bobot parameter pada *backbone* konvolusi MobileNetV3 dibekukan (*frozen*). Pelatihan difokuskan secara eksklusif pada lapisan proyeksi, lapisan rekuren BiLSTM, dan lapisan klasifikasi luaran. Fase ini dijalankan selama **15 hingga 20 epoch** menggunakan pengoptimal **ADAM** dengan laju pembelajaran (*learning rate*) $\eta = 10^{-3}$, ukuran *batch* 32, dan fungsi pembatas gradien (*gradient clipping*) dengan nilai ambang 5.0.
 
 2. **Fase 2 — Penalaan Halus Menyeluruh (*End-to-End Fine-Tuning Phase*):**  
-   Kunci pembekuan pada beberapa blok konvolusi teratas (*top UIB blocks*) MobileNetV4 dibuka (*unfrozen*). Seluruh jaringan kemudian dilatih secara simultan secara *end-to-end* selama **40 hingga 60 epoch**. Pada fase ini, laju pembelajaran diturunkan secara signifikan menjadi $\eta = 10^{-4}$ (atau didukung mekanisme peluruhan *Cosine Annealing Schedule*) dengan *weight decay* $10^{-4}$ untuk mencegah rusaknya fitur visual awal. Pelatihan dipantau menggunakan mekanisme *early stopping* dengan batas kesabaran (*patience*) sebanyak 10 epoch berdasarkan metrik kerugian pada data validasi.
+   Kunci pembekuan pada beberapa blok konvolusi teratas (*top convolutional blocks*) MobileNetV3 dibuka (*unfrozen*). Seluruh jaringan kemudian dilatih secara simultan secara *end-to-end* selama **40 hingga 60 epoch**. Pada fase ini, laju pembelajaran diturunkan secara signifikan menjadi $\eta = 10^{-4}$ (atau didukung mekanisme peluruhan *Cosine Annealing Schedule*) dengan *weight decay* $10^{-4}$ untuk mencegah rusaknya fitur visual awal. Pelatihan dipantau menggunakan mekanisme *early stopping* dengan batas kesabaran (*patience*) sebanyak 10 epoch berdasarkan metrik kerugian pada data validasi.
 
 Lingkungan komputasi eksperimen direncanakan menggunakan bahasa pemrograman Python 3.10 dengan pustaka PyTorch / TensorFlow 2.x, OpenCV, Albumentations, dan Scikit-Learn pada lingkungan perangkat keras terakselerasi GPU (Google Colab / Workstation lokal).
 
@@ -956,10 +962,10 @@ Untuk menguji hipotesis penelitian secara ilmiah dan membuktikan kontribusi masi
 | Kode Skenario | Deskripsi Skenario Eksperimen | Backbone CNN | Komponen Sekuensial | Strategi Bobot / Training | Tujuan Pengujian & Justifikasi |
 |:---|:---|:---|:---|:---|:---|
 | **M-01 (Baseline 1)** | Model CNN Mandiri Klasik | CNN Kustom Sederhana | Tanpa LSTM (Dense Head) | *From Scratch* | Mengukur batas performa model CNN dasar tanpa komponen sekuensial (analog Rahmatulloh 2022). |
-| **M-02 (Baseline 2)** | CNN-LSTM Tanpa Transfer Learning | MobileNetV4 | 2-Layer BiLSTM | *From Scratch* (Bobot Acak) | Mengukur dampak langsung dari penambahan lapisan LSTM tanpa bantuan bobot *pre-trained*. |
-| **M-03 (Ablasi TL)** | CNN-LSTM + TL ImageNet (Frozen) | MobileNetV4 | 2-Layer BiLSTM | *Transfer Learning* (Hanya Fase 1 / Freeze) | Mengukur efektivitas representasi visual ImageNet tanpa penalaan halus domain tulisan tangan. |
-| **M-04 (Proposed)** | **CNN-LSTM + TL MobileNetV4 (Fine-Tuning)** | **MobileNetV4** | **2-Layer BiLSTM** | **Two-Stage Fine-Tuning (Fase 1 + Fase 2)** | **Model Utama yang Diusulkan:** Mengukur performa puncak arsitektur usulan secara penuh. |
-| **M-05 (Ablasi Data)**| Model M-04 Tanpa Augmentasi Citra | MobileNetV4 | 2-Layer BiLSTM | Two-Stage (Tanpa Augmentasi Morfologis) | Membuktikan seberapa besar kontribusi teknik augmentasi dalam mencegah *overfitting* data kecil. |
+| **M-02 (Baseline 2)** | CNN-LSTM Tanpa Transfer Learning | MobileNetV3 | 2-Layer BiLSTM | *From Scratch* (Bobot Acak) | Mengukur dampak langsung dari penambahan lapisan LSTM tanpa bantuan bobot *pre-trained*. |
+| **M-03 (Ablasi TL)** | CNN-LSTM + TL ImageNet (Frozen) | MobileNetV3 | 2-Layer BiLSTM | *Transfer Learning* (Hanya Fase 1 / Freeze) | Mengukur efektivitas representasi visual ImageNet tanpa penalaan halus domain tulisan tangan. |
+| **M-04 (Proposed)** | **CNN-LSTM + TL MobileNetV3 (Fine-Tuning)** | **MobileNetV3** | **2-Layer BiLSTM** | **Two-Stage Fine-Tuning (Fase 1 + Fase 2)** | **Model Utama yang Diusulkan:** Mengukur performa puncak arsitektur usulan secara penuh. |
+| **M-05 (Ablasi Data)**| Model M-04 Tanpa Augmentasi Citra | MobileNetV3 | 2-Layer BiLSTM | Two-Stage (Tanpa Augmentasi Morfologis) | Membuktikan seberapa besar kontribusi teknik augmentasi dalam mencegah *overfitting* data kecil. |
 
 <br>
 
@@ -986,7 +992,7 @@ Penelitian skripsi ini direncanakan berlangsung selama satu semester akademik (k
 | 3. | Inventarisasi kosakata Iqro 3 dan pengembangan antarmuka *canvas* | | [ X ] | | | | |
 | 4. | Pengumpulan dataset tulisan tangan dan verifikasi kendali mutu (QC) | | [ X ] | [ X ] | | | |
 | 5. | Pengembangan modul pra-pemrosesan citra dan pemipaan data (*pipeline*) | | | [ X ] | | | |
-| 6. | Implementasi arsitektur CNN-LSTM MobileNetV4 dan pelatihan model | | | [ X ] | [ X ] | | |
+| 6. | Implementasi arsitektur CNN-LSTM MobileNetV3 dan pelatihan model | | | [ X ] | [ X ] | | |
 | 7. | Pelaksanaan eksperimen kajian ablasi (*ablation study*) dan penalaan parameter | | | | [ X ] | [ X ] | |
 | 8. | Evaluasi performa pengenalan, penghitungan CER, dan analisis hasil | | | | | [ X ] | |
 | 9. | Penyusunan draf naskah laporan skripsi lengkap (Bab 1 s.d. Bab 5) | | | | | [ X ] | [ X ] |
@@ -1024,6 +1030,8 @@ Durayhim, A. B., Al-Ajlan, A., Al-Turaiki, I., dan Altwaijry, N. (2023), “Towa
 El Khayati, M., Maafiri, A., Himeur, Y., Alkhazaleh, H. A., Atalla, S., dan Mansoor, W. (2025), “Leveraging Transfer Learning and Mobile-Enabled Convolutional Neural Networks for Improved Arabic Handwritten Character Recognition”, *arXiv preprint arXiv:2509.05019*, hal. 1–15.
 
 Graves, A., Fernández, S., Gomez, F., dan Schmidhuber, J. (2006), “Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks”, *Proceedings of the 23rd International Conference on Machine Learning (ICML)*, Pittsburgh, hal. 369–376.
+
+Howard, A., Sandler, M., Chu, G., Chen, L.-C., Chen, B., Tan, M., Wang, W., Zhu, Y., Pang, R., Vasudevan, V., Le, Q. V., dan Adam, H. (2019), “Searching for MobileNetV3”, *Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)*, Seoul, hal. 1314–1324.
 
 Lamtougui, H., El Moubtahij, H., Fouadi, H., dan Satori, K. (2024), “Improving Arabic Handwritten Text Recognition through Transfer Learning with Convolutional Neural Network-Based Models”, *Bulletin of Electrical Engineering and Informatics*, Vol. 13, No. 6, hal. 4294–4305.
 
