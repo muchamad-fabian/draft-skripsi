@@ -13,15 +13,12 @@ Penelitian ini mengembangkan model pengenalan tulisan tangan huruf Hijaiyah **be
 - **Keluaran:** urutan 28 huruf Hijaiyah tanpa harakat.
 - **Metrik evaluasi:** akurasi urutan penuh (*exact sequence match*), akurasi per karakter, dan *Character Error Rate* (CER).
 
-Latar belakang dan celah penelitian lengkap ada di [`BAB1_PENDAHULUAN.md`](BAB1_PENDAHULUAN.md).
+Latar belakang dan celah penelitian lengkap ada di [`ANALISIS_LITERATUR_LENGKAP.md`](ANALISIS_LITERATUR_LENGKAP.md) dan [`literatur_gap_skripsi.md`](literatur_gap_skripsi.md).
 
 ## Isi Repositori
 
 | Berkas / Folder | Keterangan |
 |---|---|
-| `BAB1_PENDAHULUAN.md` | Naskah Bab 1 (Pendahuluan) beserta ringkasan analisis draf |
-| `DRAFT_PROPOSAL_SKRIPSI.md` | Draf lengkap proposal skripsi |
-| `ARSIP_DRAFT_BAB1_PROPOSAL.md` | Arsip draf awal Bab 1 / proposal |
 | `ANALISIS_LITERATUR_LENGKAP.md` | Analisis literatur lengkap |
 | `literatur_gap_skripsi.md` | Pemetaan *research gap* |
 | `skripsi_hijaiyah_canvas_research_notes.md` | Catatan riset canvas Hijaiyah |
@@ -33,6 +30,7 @@ Latar belakang dan celah penelitian lengkap ada di [`BAB1_PENDAHULUAN.md`](BAB1_
 | `file pdf/` | PDF acuan (materi Iqro 3, ketentuan penulisan skripsi UISI) |
 | `panduan-penulisan-skripsi.pdf` | Panduan penulisan skripsi |
 | `Pengerjaan/` | Arsip catatan sesi kerja (status, keputusan teknis, langkah lanjut) |
+| `data-iqro/` | Dataset awal: 112 citra PNG hasil ekspor canvas untuk kosakata Iqro 3 |
 | `.opencode/`, `.qoder/` | Konfigurasi tool lokal |
 
 ### Arsip sesi
