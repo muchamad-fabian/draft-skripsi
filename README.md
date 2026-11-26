@@ -27,6 +27,7 @@ Latar belakang dan celah penelitian lengkap ada di [`BAB1_PENDAHULUAN.md`](BAB1_
 | `skripsi_hijaiyah_canvas_research_notes.md` | Catatan riset canvas Hijaiyah |
 | `DAFTAR_JURNAL_REFERENSI.md` | Daftar jurnal acuan |
 | `prd.md` | Product Requirements Document — spesifikasi teknis pipeline |
+| `REVISI_BIMBINGAN.md` | PRD revisi & catatan tindak lanjut bimbingan dosen (Monita UISI) |
 | `FORMAT_TUGAS_AKHIR.md` | Format/lembar resmi tugas akhir (template kampus) |
 | `file GAP/` | Kumpulan PDF jurnal pendukung & kajian *research gap* |
 | `file pdf/` | PDF acuan (materi Iqro 3, ketentuan penulisan skripsi UISI) |
